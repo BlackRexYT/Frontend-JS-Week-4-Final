@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.link--hover--effect{
+    position: relative;
+}
+.link--hover--effect:after{
+    content: "";
+    position:absolute;
+    bottom:-3px;
+    height:3px;
+    width:0;
+    right:0;
+    transition: all 300ms ease;
+}
+.link--hover--effect:hover:after{
+    left:0;
+    width:100%;
+}
+.link--hover--effect--white:after{
+    background-color:white;
+}
+/* Nav Bar */
+
+#logo--img{
+    width:calc(160px);
+    height:calc(43px);
+    position:absolute;
+    margin-top:-33px;
+    margin-left:-25px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    height:100px;
+}
+.nav--link--list{
+    color:white;
+    font-size:20px;
+    margin-top:-15px;
+    margin-left:20px;
+}
+.nav--link{
+    margin:0 30px;
+    color:white;
+}
+.nav--link--primary{
+    border: 3px solid white;
+    background:white;
+    border-radius:99px;
+    font-size:14px;
+    padding:12px 45px;
+    color:rgb(96, 48, 177);
+    margin-left:15px;
+    transition: all 300ms ease;
+    font-weight:500;
+}
+.nav--link--primary:hover{
+    border: 3px solid #ff328f;
+    background:#ff328f;
+    color:white;
+}
+.nav--link--primary-adjust{
+    padding-top:-10px;
+}
+
+
+/* Landing Page */
+
+
+#landing--page{
+    background: linear-gradient(to right, rgba(41, 25, 71, 0.83), rgba(41, 25, 71, 0.83)), url("assets/carpark.8742e246.jpeg") no-repeat fixed;
+    background-size: 115%;
+    background-position:0px -2px;
+    height:320px;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-size:40px;
+    font-weight:400;
+    letter-spacing: 0.2em;
+    margin-bottom:40px;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid white;
+    border-radius:99px;
+    background-color:white;
+    padding: 12px 35px;
+    width:30%;
+    margin:0 auto;
+}
+.search--bar{
+    border:2px solid transparent;
+    width:1000%;
+    resize:none;
+    outline:none;
+    margin-left:-20px;
+    font-size:22px
+}
+.search--icon{
+    font-size:30px;
+    margin-right:-15px;
+    color:rgb(96, 48, 177);
+}
+
+/* main page */
+
+.landing--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
+    margin-top:50px;
+}
+.landing--search--title{
+    font-size:30px;
+}
+.price--filter{
+    font-size:14px;
+    margin-right:90px;
+    margin-top:-40px;
+}
+.purple{
+    color:rgb(96, 48, 177)
+}
