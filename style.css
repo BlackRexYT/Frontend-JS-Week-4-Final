@@ -127,6 +127,7 @@ nav{
     font-size:30px;
     margin-right:-15px;
     color:rgb(96, 48, 177);
+    cursor: pointer;
 }
 
 /* main page */
