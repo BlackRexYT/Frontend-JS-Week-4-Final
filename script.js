@@ -1,7 +1,6 @@
 async function main(){
     const movies = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=eda829471e8cc844d3636639f05ece98&language=en-US&page=1')
-    const moviesData = await movies.json()
-    const movieData = Object.values(moviesData)
+    const movieData = await movies.json()
     const movieListEl = document.querySelector('.movie-list')
 
     console.log(movieData)
