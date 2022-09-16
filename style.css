@@ -36,6 +36,17 @@ a{
 .link--hover--effect--white:after{
     background-color:white;
 }
+.container{
+    padding: 50px 0;
+    width:100%;
+}
+.row{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 12px;
+}
+
 /* Nav Bar */
 
 #logo--img{
@@ -151,4 +162,41 @@ nav{
 }
 .purple{
     color:rgb(96, 48, 177)
+}
+.movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width:1400px;
+    margin-left:100px;
+}
+.movie{
+    width:calc(100% / 3);
+}
+.movie-card{
+    background-color: white;
+    border-radius:99px;
+    margin:10px;
+    transition:0.3s;
+    cursor: pointer;
+}
+.movie-card__container{
+    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+}
+.movie--img{
+    width:250px;
+    height:350px;
+}
+.movie--name{
+    font-size:25px;
+    width:100%;
+    max-width:200px;
+    color:#8240af;
+}
+.movie--release{
+    font-size:16px;
+    letter-spacing: 2px;
+    color:#5e5e5e;
 }

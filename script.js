@@ -1,24 +1,27 @@
+// http://www.omdbapi.com/?apikey=2fdec942&
+// http://img.omdbapi.com/?apikey=2fdec942&
+
 async function main(){
-    const movies = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=eda829471e8cc844d3636639f05ece98&language=en-US&page=1')
+    let search 
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s=avengers`)
     const movieData = await movies.json()
     const movieListEl = document.querySelector('.movie-list')
 
     console.log(movieData)
     
-    movieListEl.innerHTML = movieData.map((movie) => movieHTML(movie)).join('')
+    movieListEl.innerHTML = movieData.Search.map((movie) => movieHTML(movie)).join('')
 }
 
 main()
+
 function movieHTML(movie){
     return `<div class="movie-card">
     <div class="movie-card__container">
         <figure>
-            <img src="${movie.poster_path}" alt="">
+            <img src="${movie.Poster}" alt="" class='movie--img'>
         </figure>
-        <h3>${movie.title}</h3>
-        <p><b>Rating: </b> ${movie.vote_average}</p>
-        <p><b>Popularity: </b> ${movie.popularity}</p>
-        <p>${movie.overview}</p>
+        <h3 class="movie--name">${movie.Title}</h3>
+        <p class="movie--release"><b>Release date: </b> ${movie.Year}</p>
     </div>
 </div>`
 }
