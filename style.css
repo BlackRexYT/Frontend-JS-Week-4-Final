@@ -46,7 +46,11 @@ a{
     margin:0 auto;
     padding:0 12px;
 }
-
+.btn{
+    outline: none;
+    border:none;
+    background-color:transparent
+}
 /* Nav Bar */
 
 #logo--img{

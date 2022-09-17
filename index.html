@@ -31,8 +31,10 @@
             <div class="landing--page--header">
                 <h1 class="title">Browse our Database</h1>
                 <div class="search">
-                    <input type="text" placeholder="Look up your favorite movie!" class="search--bar">
-                    <i class="fas fa-search search--icon"></i>
+                    <input type="text" id='mySearch' onkeyup="search(event)" placeholder="Look up your favorite movie!" class="search--bar">
+                    <button onclick="searchButton(event)" class="btn">
+                        <i class="fas fa-search search--icon" id='mySearchButton'></i>
+                    </button>
                 </div>
             </div>
         </header>
@@ -61,11 +63,6 @@
                     <div class="movie">
                         <div class="movie-card">
                             <div class="movie-card__container">
-                                <figure>
-                                    <img src="" alt="" class="movie--img">
-                                </figure>
-                                <h3 class="movie--name">Movie Name</h3>
-                                <p class="movie--release"><b>Release date: </b> Example Rating</p>
                             </div>
                         </div>
                     </div>

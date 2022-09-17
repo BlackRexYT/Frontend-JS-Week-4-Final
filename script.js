@@ -1,11 +1,21 @@
-// http://www.omdbapi.com/?apikey=2fdec942&
-// http://img.omdbapi.com/?apikey=2fdec942&
+const movieListEl = document.querySelector('.movie-list')
+const val = document.querySelector('input').value
 
-async function main(){
-    let search 
-    const movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s=avengers`)
+
+async function searchButton(event){
+    const val = document.querySelector('input').value
+    main(val)
+}
+async function search(event) {
+    const val = document.querySelector('input').value
+    if (event.keyCode === 13) {
+        main(val)
+    }
+}
+
+async function main(val){
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s=${val || 'thor'}`)
     const movieData = await movies.json()
-    const movieListEl = document.querySelector('.movie-list')
 
     console.log(movieData)
     
