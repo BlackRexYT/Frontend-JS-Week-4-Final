@@ -26,6 +26,25 @@
                     <a href="#" class="nav--link--primary nav--link--primary-adjust">CONTACT</a>
                 </li>
             </ul>
+            <button class="btn--menu" onclick="openMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu--backdrop">
+                <button class="btn--menu btn--menu--close" onclick="closeMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="menu--links">
+                    <li class="menu--list">
+                        <a href="#" class="menu--link" onclick="closeMenu()">Home</a>
+                    </li>
+                    <li class="menu--list">
+                        <a href="#" class="menu--link" onclick="closeMenu()">Ratings</a>
+                    </li>
+                    <li class="menu--list">
+                        <a href="#" class="menu--link no-cursor" onclick="closeMenu()">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <header>
             <div class="landing--page--header">
@@ -42,7 +61,7 @@
     <section id="landing">
         <div class="landing--wrapper">
             <h1 class="landing--search--title">
-                <span class="black--text">Search results:</span>
+                <span class="search--title black--text">Search results:</span>
             </h1>
             <div class="price--filter">
                 <select id="filter" onchange="filterMovies(event)">

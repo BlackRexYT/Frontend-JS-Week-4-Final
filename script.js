@@ -21,6 +21,14 @@ async function main(val){
 
     movieListEl.innerHTML = movieData.Search.map((movie) => movieHTML(movie)).join('')
 
+    if (filter === 'LOW_TO_HIGH'){
+        movies = `${val}`
+        movieData.Search.sort((a,b) => a.Year - b.Year)
+    }
+    else if (filter === 'HIGH_TO_LOW'){
+        movies = `${val}`
+        movieData.Search.sort((a,b) => b.Year - a.Year)
+    }
 }
 
 main()
@@ -39,5 +47,12 @@ function movieHTML(movie){
         <p class="movie--release"><b>Release date: </b> ${movie.Year}</p>
     </div>
 </div>`
+}
+
+function openMenu() {
+    document.body.classList += "menu--open"
+}
+function closeMenu() {
+    document.body.classList.remove('menu--open')
 }
 
