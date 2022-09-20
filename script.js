@@ -14,15 +14,20 @@ async function search(event) {
 }
 
 async function main(val){
-    const movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s=${val || 'thor'}`)
+    let movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s='${val || 'thor'}'`)
     const movieData = await movies.json()
 
     console.log(movieData)
-    
+
     movieListEl.innerHTML = movieData.Search.map((movie) => movieHTML(movie)).join('')
+
 }
 
 main()
+
+function filterMovies(event){
+    main(event.target.value)
+}
 
 function movieHTML(movie){
     return `<div class="movie-card">
@@ -35,3 +40,4 @@ function movieHTML(movie){
     </div>
 </div>`
 }
+

@@ -45,16 +45,11 @@
                 <span class="black--text">Search results:</span>
             </h1>
             <div class="price--filter">
-                <h2>
-                    <span class="black--text">Price range: <span class="purple">$0 to $100,000</span></span>
-                </h2>
-                <div class="slider--wrapper">
-                    <div role="slider" aria-valuemin="0" aria-valuemax="100000" aria-orientation="horizontal" class="slider--bar" aria-valuetext="0-100000" aria-label="slider between 0 and 100000">
-
-                    </div>
-
-                </div>
-
+                <select id="filter" onchange="filterMovies(event)">
+                    <option value="" disabled selected>Sort</option>
+                    <option value="LOW_TO_HIGH">Year of Release: Old-New</option>
+                    <option value="HIGH_TO_LOW">Year of Release: New-Old</option>
+                  </select>
             </div>
         </div>
         <div class="container">
