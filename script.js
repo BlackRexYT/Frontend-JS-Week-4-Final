@@ -13,29 +13,30 @@ async function search(event) {
     }
 }
 
-async function main(val){
+async function main(val, filter){
     let movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s='${val || 'thor'}'`)
     const movieData = await movies.json()
+    let movie = val
 
     console.log(movieData)
 
     movieListEl.innerHTML = movieData.Search.map((movie) => movieHTML(movie)).join('')
 
+       
     if (filter === 'LOW_TO_HIGH'){
-        movies = `${val}`
-        movieData.Search.sort((a,b) => a.Year - b.Year)
+        movieData.Search.sort((a, b) => (b.Year  ||  b.Year) - (a.Year || a.Year))
+     
     }
-    else if (filter === 'HIGH_TO_LOW'){
-        movies = `${val}`
-        movieData.Search.sort((a,b) => b.Year - a.Year)
+    else if (filter === 'HIGH_TO_LOW') {
+        movieData.Search.sort((a, b) => (a.Year  ||  a.Year) - (b.Year || b.Year))
+ 
     }
 }
-
-main()
 
 function filterMovies(event){
     main(event.target.value)
 }
+
 
 function movieHTML(movie){
     return `<div class="movie-card">
