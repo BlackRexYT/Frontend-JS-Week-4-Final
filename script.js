@@ -1,45 +1,45 @@
-const movieListEl = document.querySelector('.movie-list')
-const val = document.querySelector('input').value
+const movieListEl = document.querySelector(".movie-list");
+const val = document.querySelector("input").value;
+let movies; // global variable
 
-
-async function searchButton(event){
-    const val = document.querySelector('input').value
-    main(val)
+async function searchButton(event) {
+  const val = document.querySelector("input").value;
+  main(val);
 }
 async function search(event) {
-    const val = document.querySelector('input').value
-    if (event.keyCode === 13) {
-        main(val)
-    }
+  const val = document.querySelector("input").value;
+  if (event.keyCode === 13) {
+    main(val);
+  }
 }
 
-async function main(val, filter){
-    let movies = await fetch(`https://www.omdbapi.com/?apikey=2fdec942&s='${val || 'thor'}'`)
-    const movieData = await movies.json()
-    let movie = val
+async function main(val) {
+  const moviesRes = await fetch(
+    `https://www.omdbapi.com/?apikey=2fdec942&s='${val || "thor"}'`
+  );
+  movies = await moviesRes.json();
 
-    console.log(movieData)
-
-    movieListEl.innerHTML = movieData.Search.map((movie) => movieHTML(movie)).join('')
-
-       
-    if (filter === 'LOW_TO_HIGH'){
-        movieData.Search.sort((a, b) => (b.Year  ||  b.Year) - (a.Year || a.Year))
-     
-    }
-    else if (filter === 'HIGH_TO_LOW') {
-        movieData.Search.sort((a, b) => (a.Year  ||  a.Year) - (b.Year || b.Year))
- 
-    }
+  movieListEl.innerHTML = movies.Search.map((movie) => movieHTML(movie)).join(
+    ""
+  );
 }
 
-function filterMovies(event){
-    main(event.target.value)
+function filterMovies(event) {
+  const filter = event.target.value;
+
+  if (filter === "OLD-NEW") {
+    movies.Search.sort((a, b) => a.Year - b.Year);
+  } else if (filter === "NEW-OLD") {
+    movies.Search.sort((a, b) => b.Year - a.Year);
+  }
+
+  movieListEl.innerHTML = movies.Search.map((movie) => movieHTML(movie)).join(
+    ""
+  );
 }
 
-
-function movieHTML(movie){
-    return `<div class="movie-card">
+function movieHTML(movie) {
+  return `<div class="movie-card">
     <div class="movie-card__container">
         <figure>
             <img src="${movie.Poster}" alt="" class='movie--img'>
@@ -47,13 +47,12 @@ function movieHTML(movie){
         <h3 class="movie--name">${movie.Title}</h3>
         <p class="movie--release"><b>Release date: </b> ${movie.Year}</p>
     </div>
-</div>`
+</div>`;
 }
 
 function openMenu() {
-    document.body.classList += "menu--open"
+  document.body.classList += "menu--open";
 }
 function closeMenu() {
-    document.body.classList.remove('menu--open')
+  document.body.classList.remove("menu--open");
 }
-
